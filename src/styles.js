@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-export const RootDiv = styled.div`
-	font-family:arial;
-	text-align:center;
-	font-size:24px;
-`;
-
-export const Link = styled.div`
-	color:white;
-	text-align:center;
-`;
+export default class AppStyles
+{
+	static RootDiv = styled.div`
+		border: solid 1px red;
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items:center;
+		padding:20px;
+	`;
+}
