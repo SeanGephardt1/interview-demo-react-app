@@ -4,24 +4,22 @@ function FuncToDo()
 {
 	const [ count, setCount ] = useState( 0 );
 	const [ inputValue, setInputValue ] = useState( "" );
-	const [ list, setToDoList ] = useState( [] );
+	const [ toDoList, setToDoList ] = useState( [] );
 
 	function AddToList( ev )
 	{
-		console.debug( 'AddToList', ev );
+		console.debug( 'AddToList' );
 
 		let _c = count;
 		let _new = {
 			id: _c,
-			text: inputValue.target.value
+			text: inputValue
 		};
 		_c++;
 
-		//	inputValue.target.value = "";
-
 		setCount( _c );
 		setInputValue( "" );
-		setToDoList( [ ...list, _new ] );
+		setToDoList( [ ...toDoList, _new ] );
 		return;
 	};
 	function ClearAll( ev )
@@ -34,7 +32,7 @@ function FuncToDo()
 	};
 	function DeleteTodoItem( ev )
 	{	//	console.debug( 'DeleteTodoItem', ev.target.value );
-		let _sliced_array = list.filter( ( item =>
+		let _sliced_array = toDoList.filter( ( item =>
 		{
 			return item.id !== parseInt(ev.target.value);
 		} ) );
@@ -44,34 +42,42 @@ function FuncToDo()
 	return (
 		<>
 			<div className="demo-text">Function style component using React Hooks</div>
+
+			{ /*
 			<div>count: { count }</div>
-			<div>list: { list.length }</div>
-			<div>inputValue: {}</div>
+			<div>toDoList: { toDoList.length }</div>
+			<div>inputValue: { inputValue }</div>
+			 */ }
+
 			<div className="add-list-panel">
-				<form action="#" onSubmit={ ClearAll }>
 				<input
 					type="text"
 					tabIndex="0"
 					placeholder="Add an item to the list"
 					className="set-text-box"
-					onChange={ setInputValue }
+					value={ inputValue }
+					onChange={ (e) =>
+					{	//	THIS HACKY CRAP
+						//	console.debug( e.currentTarget.value );
+						setInputValue( e.target.value );
+						return;
+					} }
 					/>
 				<button
 					tabIndex="0"
 					className="item-btn"
 					onClick={ AddToList }
-					disabled={ ( inputValue === '' ) ? 'disabled' : '' }>Add</button>
+					disabled={ ( inputValue.length === 0 ) ? 'disabled' : '' }>Add</button>
 				<button
 					tabIndex="0"
 					className="item-btn"
 					style={ { 'marginLeft': '10px'}}
 					onClick={ ClearAll }
-						disabled={ ( list.length > 0 ) ? '' : 'disabled' }>Clear All</button>
-				</form>
+					disabled={ ( toDoList.length > 0 ) ? '' : 'disabled' }>Clear All</button>
 			</div>
 			<div className="list-item-panel">
 			{
-				list.map( ( item, idx ) => (
+					toDoList.map( ( item, idx ) => (
 					<div key={ idx } className="list-item">
 						<div>{ item.id } :: { item.text }</div>
 						<div>

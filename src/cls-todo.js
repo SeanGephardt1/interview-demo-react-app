@@ -16,14 +16,7 @@ export default class ClassTodo extends React.Component
 	};
 	OnChange_HandleUserInput( ev )
 	{	//	console.debug( 'OnChange_HandleUserInput', ev.target.value );
-
-		let _val = ev.target.value.trim();
-		console.debug( '_val', _val, _val.length );
-
-		if ( _val.length !== 0 )
-		{
-			this.setState( { itemText: _val } );
-		}
+		this.setState( { itemText: ev.target.value } );
 		return;
 	};
 	OnClick_AddToList( ev )
@@ -69,6 +62,13 @@ export default class ClassTodo extends React.Component
 	{
 		return ( <>
 			<div className="demo-text">Class style component using React setState</div>
+
+			{ /*
+			<div>count: { this.state.count }</div>
+			<div>toDoList: { this.state.list.length }</div>
+			<div>itemText: { this.state.itemText }</div>
+			 */}
+
 			<div className="add-list-panel">
 				<input
 					type="text"
