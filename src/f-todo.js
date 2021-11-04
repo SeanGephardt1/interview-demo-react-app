@@ -7,9 +7,7 @@ function FuncToDo()
 	const [ toDoList, setToDoList ] = useState( [] );
 
 	function AddToList( ev )
-	{
-		console.debug( 'AddToList' );
-
+	{	//	console.debug( 'AddToList' );
 		let _c = count;
 		let _new = {
 			id: _c,
@@ -23,8 +21,7 @@ function FuncToDo()
 		return;
 	};
 	function ClearAll( ev )
-	{
-		console.debug( 'ClearAll', ev );
+	{	//	console.debug( 'ClearAll', ev );
 		setCount( 0 );
 		setInputValue( "" );
 		setToDoList( [] );

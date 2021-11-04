@@ -9,7 +9,13 @@ function App()
 	return (
 		<div className="demo-root">
 			<div className="demo-title">Interview Demo</div>
-			<div className="demo-sub-title">React ToDo List components</div>
+			<div className="demo-sub-title">React ToDo List Component Demo</div>
+			<div className="demo-text">
+				<a
+					className="demo-link"
+					href="https://github.com/SeanGephardt1/interview-demo-react-app"
+					target="_new">This GitHub repo</a>
+			</div>
 			<FuncToDo />
 			<ClsToDo />
 		</div>

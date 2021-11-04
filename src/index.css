@@ -36,12 +36,30 @@ body
 }
 .demo-text
 {
+    margin-top: 10px;
     margin-bottom: 10px;
 }
+.demo-link,
+.demo-link:visited
+.demo-link:link
+{
+    /*    border: solid 1px red;*/
+    color: rgba(190,190,190,1);
+    text-decoration: none;
+    transition: color 300ms ease-in-out;
+}
+.demo-link:hover,
+.demo-link:focus
+{
+    color: rgba(255,255,255,1);
+    text-decoration: auto;
+}
+
+
 
 .add-list-panel
 {
-    padding:10px;
+    padding: 10px;
 }
 .set-text-box
 {
